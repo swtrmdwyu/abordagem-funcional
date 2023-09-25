@@ -9,4 +9,4 @@ export const pipe = (...fns) => value =>
     fns.reduce((previousValue, fn) => 
         fn(previousValue), value);
 
-export const takeUntil = (times, fn) => () => times-- > 0 && fn();
+export const takeUntil = (times, fn) => () => times-- > 0 && fn(); // escrevendo desta maneira a função será executada a partir do momento em que a primeira verificação der true
