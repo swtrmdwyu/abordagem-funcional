@@ -21,3 +21,9 @@ export const timeoutPromise = (milliseconds, promise) => {
         promise
     ]);
 };
+
+// para dar tempo entre as execuções do then de foma que armazene os resultados.
+export const delay = milliseconds => data =>
+    new Promise((resolve, reject) => 
+        setTimeout(() => resolve(data), milliseconds)
+);

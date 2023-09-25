@@ -1,4 +1,4 @@
-import { log, timeoutPromise } from './utils/promise-helpers.js';
+import { log, timeoutPromise, delay  } from './utils/promise-helpers.js';
 import './utils/array-helpers.js';
 import { notasService as service } from './nota/services/nota-services.js';
 import { takeUntil, debounceTime, pipe, partialize } from './utils/operators.js';7
@@ -10,6 +10,7 @@ const operations = pipe(
 
 const action = operations(() => 
     timeoutPromise(200, service.sumItems('2143')) // Se a requisição demorar demais não fara nada
+    .then(delay(5000)) // chamou delay.
     .then(console.log)
     .catch(console.log)
 );
