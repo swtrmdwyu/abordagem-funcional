@@ -3,6 +3,13 @@ import './utils/array-helpers.js';
 import { notasService as service } from './nota/services/nota-services.js';
 import { takeUntil, debounceTime, pipe, partialize } from './utils/operators.js';
 import { EventEmitter } from './utils/event-emitter.js';
+import { Maybe } from './utils/maybe.js';
+
+const resultado = Maybe
+    .of(null)
+    .map(value => value + 10) 
+    .map(value => value + 30)
+    .getOrElse(0); // retorna 0
 
 
 const operations = pipe(
