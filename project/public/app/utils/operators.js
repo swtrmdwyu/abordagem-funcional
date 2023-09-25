@@ -10,3 +10,11 @@ export const pipe = (...fns) => value =>
         fn(previousValue), value);
 
 export const takeUntil = (times, fn) => () => times-- > 0 && fn(); // escrevendo desta maneira a função será executada a partir do momento em que a primeira verificação der true
+
+export const debounceTime = (milliseconds, fn) => {
+    let timer = 0;
+    return () => {
+        clearTimeout(timer);
+        timer = setTimeout(fn, milliseconds);
+    };
+};
